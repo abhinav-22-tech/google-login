@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Signin from "./components/Signin/Signin";
+import { auth } from "./lib/firebase";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [appState, setAppState] = useState("empty");
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setCurrentUser(user);
+        setAppState("home");
+      } else {
+        setCurrentUser(null);
+        setAppState("login");
+      }
+    });
+  }, []);
+
+  console.log(currentUser);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {appState === "empty" && <p>Loading...</p>}
+      {appState === "home" && <p>Home Page</p>}
+      {appState === "login" && <Signin />}
     </div>
   );
 }
