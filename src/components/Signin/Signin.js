@@ -4,6 +4,7 @@ import { Button } from "@material-ui/core";
 import Signup from "../Signup/Signup";
 import "./styles.css";
 import { auth } from "../../lib/firebase";
+import logo from "../../images/X-oo.svg";
 
 const errorInitialValue = { state: false, msg: "" };
 
@@ -66,8 +67,9 @@ const Signin = () => {
               }}
             >
               <img
-                src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-                alt="Google"
+                src={logo}
+                // src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+                alt="X-oo"
                 className="login__logo"
               />
 

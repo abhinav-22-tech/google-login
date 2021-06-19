@@ -4,6 +4,7 @@ import { FormControlLabel } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import "./styles.css";
 import { auth } from "../../lib/firebase";
+import logo from "../../images/X-oo.svg";
 
 const initialValue = {
   firstName: "",
@@ -107,8 +108,8 @@ const Signup = ({ setShowSignUp }) => {
         <div className="signup__container">
           <div className="signup__left">
             <img
-              src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-              alt="Google"
+              src={logo}
+              alt="X-oo"
               className="login__logo"
             />
 
@@ -245,7 +246,7 @@ const Signup = ({ setShowSignUp }) => {
             />
 
             <figcaption className="signup__figcaption">
-              One account. All of google working for you
+              One account. All of X-oo working for you
             </figcaption>
           </figure>
         </div>
